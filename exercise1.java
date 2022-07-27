@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.prefs.PreferenceChangeEvent;
 
 //        Vending machine has following coins: 1c, 5c, 10c, 25c, 50c, 1$.
 ////                Your task is to write a program that will be used in a vending machine to return change.
@@ -12,15 +13,16 @@ import java.util.ArrayList;
 //
 //        4.01
 //        0.01 -> 0.1
-public class exersise1 {
+public class exercise1 {
     static ArrayList<Integer> getChange(double M, double P) {
         int c1, c5, c10, c50, d1, c25;
-        double rd1, rc5, rc10, rc25, rc50;
+        int rd1, rc5, rc10, rc25, rc50;
         double change = M - P;
         d1 = (int) (change / 1); //d1=1
-        rd1 = change % 1;//rd1=0.7
-        c50 = (int) ((rd1 * 100) / 50);
-        rc50 = (rd1 * 100) % 50;
+        int rchange = (int) (change*100);
+        rd1 = (int) (rchange % 100);//rd1=0.7
+        c50 = (int) (rd1 / 50);
+        rc50 = rd1 % 50;
         c25 = (int) (rc50 / 25);
         rc25 = rc50 % 25;
         c10 = (int) (rc25 / 10);
@@ -39,6 +41,6 @@ public class exersise1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(getChange(10, 0.6));
+        System.out.println(getChange(10, 0.7));
     }
 }
