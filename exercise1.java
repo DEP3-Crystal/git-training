@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.prefs.PreferenceChangeEvent;
-
 //        Vending machine has following coins: 1c, 5c, 10c, 25c, 50c, 1$.
 ////                Your task is to write a program that will be used in a vending machine to return change.
 //                Assume vending machine will always want to return the least number of coins.
@@ -21,16 +19,16 @@ public class exercise1 {
         double change = M - P;
         d1 = (int) (change / 1); //d1=1
         int rchange = (int) (change*100);
-        rd1 = (int) (rchange % 100);//rd1=0.7
-        c50 = (int) (rd1 / 50);
+        rd1 = rchange % 100;//rd1=0.7
+        c50 = rd1 / 50;
         rc50 = rd1 % 50;
-        c25 = (int) (rc50 / 25);
+        c25 = rc50 / 25;
         rc25 = rc50 % 25;
-        c10 = (int) (rc25 / 10);
+        c10 = rc25 / 10;
         rc10 = rc25 % 10;
-        c5 = (int) (rc10 / 5);
+        c5 = rc10 / 5;
         rc5 = rc10 % 5;
-        c1 = (int) (rc5 / 1);
+        c1 = rc5 / 1;
         ArrayList<Integer> rest = new ArrayList<>(6);
         rest.add(0, c1);
         rest.add(1, c5);
@@ -38,7 +36,7 @@ public class exercise1 {
         rest.add(3, c25);
         rest.add(4, c50);
         rest.add(5, d1);
-        return rest;
+        return rest;//18.91
     }
 
     public static void main(String[] args) {
