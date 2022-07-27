@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.prefs.PreferenceChangeEvent;
 
 //        Vending machine has following coins: 1c, 5c, 10c, 25c, 50c, 1$.
@@ -41,6 +42,14 @@ public class exercise1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(getChange(10, 0.7));
+
+        Scanner in=new Scanner(System.in);
+        System.out.println("enter  amount of money that you will put inside :  ");
+        double  amount = in.nextDouble();
+        System.out.println("enter   the price of the product you want to buy : ");
+
+        double  price = in.nextDouble();
+
+        System.out.println(getChange(amount, price));
     }
 }
